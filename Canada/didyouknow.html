@@ -1,0 +1,59 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
+  <title>Did You Know?</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.28/"></script>
+
+  <script>
+    require([
+      "esri/config",
+      "esri/Map",
+      "esri/WebMap",
+      "esri/views/MapView",
+      "esri/widgets/ScaleBar",
+      "esri/widgets/Legend"
+    ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
+
+    esriConfig.apiKey = "AAPK04e34aeee6164926b916100e232a635eogcxlbsMy48Jx_poDUDO3YK2gMXxquDVrF27l2JKfVwDpzj7uYJZ7XD5twcFdU7E";
+
+      const webmap = new WebMap({
+        portalItem: {
+          id: "8f13f65213294986a61dcbd46df5ecda"
+        }
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+
+        map: webmap
+
+      });
+
+      const scalebar = new ScaleBar({
+        view: view
+      });
+
+      view.ui.add(scalebar, "bottom-left");
+
+    const legend = new Legend ({
+        view: view
+      });
+      view.ui.add(legend, "top-right");
+
+  });
+  </script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>
