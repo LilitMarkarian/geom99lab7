@@ -5,27 +5,37 @@
   <title>Did You Know?</title>
   <style>
     html, body, #viewDiv {
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-    }
-  </style>
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .title{
+        	display:flex;
+        	flex-direction: column;
+         }
+         h1 {
+    	 text-align: center;
+         color: #FF7F7F;
+    	 font-size:28px;
+    	 font-family: helvetica, arial, sans-serif;
+    	 padding-left: 10px;
+    	 padding-right: 10px;
+    	 margin-top: 5px;
+    	 padding-top: 20px;
+       }
+    </style>
+  
   <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
   <script src="https://js.arcgis.com/4.28/"></script>
 
   <script>
     require([
-      "esri/config",
       "esri/Map",
       "esri/WebMap",
       "esri/views/MapView",
-      "esri/widgets/ScaleBar",
-      "esri/widgets/Legend"
-    ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
-
-    esriConfig.apiKey = "AAPKb4236177082148aaaaeb6abe9819359cigmdTibxdgcaALOezudeDV5zeo0wsLIugdrr_hbY4TH7HsXrumczH4aMRJBoyJ6B";
-
+      
+    ], function(WebMap, MapView) {
       const webmap = new WebMap({
         portalItem: {
           id: "8f13f65213294986a61dcbd46df5ecda"
